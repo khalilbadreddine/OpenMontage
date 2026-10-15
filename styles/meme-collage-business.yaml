@@ -1,0 +1,118 @@
+identity:
+  name: "Meme Collage Business"
+  category: custom
+  mood: punchy, irreverent, curious, fast
+  pace: fast
+  best_for: "Business / brand origin-story Shorts ('How X Was Founded'): photo backgrounds, red stick figures with real cut-out faces, word-synced captions. Channel brain: skills/channels/business-origin-shorts/BRAIN.md"
+
+visual_language:
+  color_palette:
+    primary: ["#E3201B", "#111111"]       # Stick-figure red, ink black
+    # Money green, gold numbers, danger red, caption white
+    accent: ["#22C55E", "#FACC15", "#E3201B", "#FFFFFF"]
+    background: "#111111"                  # Fallback only — scenes use photo plates
+    text: "#FFFFFF"                        # Captions: white fill + black stroke
+    muted: "#9CA3AF"
+  composition: centered hero character in the middle third, captions upper third, props popping in around the hero, era-accurate photo background over-scanned 110%+
+  texture: real photographs and hard-edged photo cut-outs mixed with crude flat red line-drawn stick bodies; meme / rage-comic faces for side characters
+
+typography:
+  headings:
+    font: "Anton"
+    weight: 400
+    tracking: "0.01em"
+  body:
+    font: "Montserrat"
+    weight: 900
+    line_height: 1.1
+  code:
+    font: "Fira Code"
+    weight: 400
+  stat_card:
+    font: "Anton"
+    weight: 400
+    size_multiplier: 3.5
+  scale_system: "perfect_fourth"
+  weight_matrix:
+    title: 400
+    heading: 400
+    body: 900
+    caption: 900
+
+motion:
+  transitions: [hard_cut, whip_pan, snap_zoom]
+  animation_style: "power3/power4 easing for camera, back.out(2) overshoot pops for props and captions, stepped 2-4 frame poses for stick figures"
+  pacing_rules:
+    min_scene_hold_seconds: 1.2
+    max_scene_hold_seconds: 3
+    text_card_hold_seconds: 1    # schema minimum; real caption cards swap every 0.3-0.8s on the word track
+    stat_card_hold_seconds: 1.5
+    transition_duration_seconds: 0.2
+  entrance: "pop: scale 0.6 -> 1.08 -> 1.0 over 0.12-0.18s with a pop SFX"
+  exit: "hard cut or whip pan out (translateX -110% over 0.2s with motion blur)"
+
+audio:
+  voice_style: "confident, brisk storyteller (~170 wpm), punchy full stops, no filler, slight dry humour on the punchline"
+  music_mood: "light curious lo-fi / plucky corporate groove, 95-115 BPM"
+  music_volume: 0.08
+  sfx_style: "cartoon-real hybrid: pop, whoosh, cha-ching, coin, stamp, thud, glass shatter, buzzer, notification ding — one per noun/action"
+  ducking_threshold_db: -6
+
+asset_generation:
+  image_prompt_prefix: >
+    Vertical 9:16 realistic documentary photograph, era-accurate location, natural light,
+    empty middle ground for characters, no people in the foreground, sharp, high detail,
+  image_negative_prompt: "text, captions, logos, watermark, cartoon, illustration, 3D render, people in the foreground, blurry"
+  scene_type: "photo_collage_scene"
+  default_particles: "none"
+  default_particle_color: "#FFFFFF"
+  default_vignette: false
+  consistency_anchors:
+    - "Every scene background is a real-looking photograph of the era and place"
+    - "Characters are red (#E3201B) stick-figure bodies with photo cut-out heads at ~1.6x scale"
+    - "Founders keep the same cut-out face in every scene"
+    - "Captions: uppercase heavy condensed sans, white with thick black stroke, upper third"
+    - "Money/numbers in green (#22C55E) or gold (#FACC15); negatives in red"
+    - "No text baked into generated images — all text is an overlay"
+  multi_image_per_scene: false
+  images_per_scene: 1
+  image_variation_guidance: >
+    One background plate per script beat. Motion comes from camera moves, prop pops and
+    stick-figure poses, not from crossfading image variations.
+
+overlays:
+  stat_card:
+    bg: "rgba(0, 0, 0, 0.0)"
+    border: "#FACC15"
+    radius: 0
+    shadow: "0 6px 0 rgba(0, 0, 0, 0.85)"
+  key_term:
+    bg: "rgba(0, 0, 0, 0.0)"
+    text: "#FFFFFF"
+    radius: 0
+  section_title:
+    bg: "rgba(0, 0, 0, 0.0)"
+    text: "#FFFFFF"
+    accent: "#E3201B"
+
+quality_rules:
+  - "Frame 0 shows the year card; the hook is understood within 2 seconds"
+  - "Background changes every 2-3 seconds; something visibly changes every 0.5-1 second"
+  - "Captions are 1-3 words, word-synced (+-80ms), inside the Shorts safe zone, never covering a face"
+  - "Every spoken number appears on screen as a counter, chart or coloured caption"
+  - "Plates over-scanned >=110% so camera moves never reveal an edge"
+  - "At least one SFX per beat; voice always intelligible; final mix -14 LUFS"
+  - "Video ends on the punchline line — no outro, no subscribe call"
+
+chart_palette:
+  - "#22C55E"
+  - "#FACC15"
+  - "#E3201B"
+  - "#FFFFFF"
+  - "#3B82F6"
+  - "#9CA3AF"
+
+color_rules:
+  harmony_type: "complementary"
+  contrast_validation: true
+  colorblind_safe: false

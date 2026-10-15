@@ -294,6 +294,14 @@ Cross-cutting skills that apply to all pipelines:
 | Taste Direction | `meta/taste-direction.md` | Convert a brief into taste dials, anti-patterns, and reference strategy for proposal/playbook/atelier work |
 | Bespoke Composition (Atelier) | `meta/bespoke-composition.md` | Hand-author a composition from scratch (hero work) — no stock scene-types; routes art-direction → motion principles → engine mechanics → atelier render |
 
+## Channel Brains
+
+A channel brain is the complete production spec for one recurring video format: what the video is, why it works, script template, visual/camera/caption/sound system, providers, workflow and quality gate. Load it first whenever the user asks for that format; it overrides creative defaults but not governance rules.
+
+| Channel | File | Trigger | Playbook |
+|---------|------|---------|----------|
+| Business Origin Shorts | `channels/business-origin-shorts/BRAIN.md` | "How X was founded", brand origin story Short, PureBusiness-style video | `meme-collage-business` |
+
 ## Style Playbooks
 
 Style playbooks (`styles/*.yaml`) define visual language, typography, motion, audio, and asset generation constraints. They are validated against `schemas/styles/playbook.schema.json`.
@@ -304,6 +312,7 @@ Style playbooks (`styles/*.yaml`) define visual language, typography, motion, au
 | `premium-minimalist` | minimalist | calm, editorial | Investor updates, expert explainers, product narratives |
 | `flat-motion-graphics` | motion-graphics | energetic, bold | Social media, TikTok, startups |
 | `minimalist-diagram` | whiteboard | focused, technical | Technical deep-dives, architecture |
+| `meme-collage-business` | custom | punchy, irreverent | Business origin-story Shorts (photo plates + red stick figures + cut-out faces) |
 
 Load via `styles/playbook_loader.py`: `load_playbook("clean-professional")`
 

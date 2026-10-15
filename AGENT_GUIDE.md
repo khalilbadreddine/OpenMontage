@@ -46,6 +46,14 @@ This is a first-class workflow in OpenMontage.
 
 If a model misses this distinction, it will often fall back to plain search + guesswork. That is incorrect for OpenMontage.
 
+## Channel Brains
+
+Some recurring video formats have a **channel brain** in `skills/channels/<channel>/BRAIN.md` — the full spec for that format (script template, visual system, camera language, captions, sound, providers, quality gate). If the user's request matches one, read it **before** selecting the pipeline and follow it through every stage.
+
+| Request looks like | Read |
+|---|---|
+| "How <brand> was founded", a business/brand origin-story Short, "PureBusiness-style" | `skills/channels/business-origin-shorts/BRAIN.md` |
+
 ## Rule Zero — All Production Goes Through a Pipeline
 
 **Every video production request MUST go through the pipeline system. No exceptions.**
